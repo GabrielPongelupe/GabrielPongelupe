@@ -8,7 +8,7 @@
 ![GabrielPongelupe GitHub stats](https://github-readme-stats.vercel.app/api?username=GabrielPongelupe&show_icons=true&theme=radical)
 <br/>
 
-### Technologies I use in my daily life
+### Technologies I use in my daily life 💻
 
 ![Top Langs](https://github-readme-stats.vercel.app/api/top-langs/?username=GabrielPongelupe&hide_progress=true&show_icons=true&theme=radical)
 
@@ -27,7 +27,7 @@
 
 Apaixonado por tecnologia e programação
 
-### Ultimos projetos:
+### Latest Projects ⭐
 - [DePinho Multimídias - Em andamento](https://github.com/ICEI-PUC-Minas-PPLES-TI/plf-es-2024-1-ti3-8966100-de-pinho-multimidias)
 - [TicketTrade - Java Spring Boot | HTML e CSS | JavaScript | SQL](https://github.com/ICEI-PUC-Minas-PPLES-TI/plf-es-2023-2-ti2-1372100-tickettrade)
 - [TimeWise - HTML | CSS | JavaScript](https://github.com/GabrielPongelupe/TimeWise_Tis1)
