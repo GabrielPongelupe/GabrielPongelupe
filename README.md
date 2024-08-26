@@ -28,7 +28,7 @@
 Apaixonado por tecnologia e programação
 
 ### Latest Projects ⭐
-- [DePinho Multimídias - Em andamento](https://github.com/ICEI-PUC-Minas-PPLES-TI/plf-es-2024-1-ti3-8966100-de-pinho-multimidias)
+- [DePinho Multimídias - Java Spring Boot | HTML e CSS | JavaScript | SQL](https://github.com/ICEI-PUC-Minas-PPLES-TI/plf-es-2024-1-ti3-8966100-de-pinho-multimidias)
 - [TicketTrade - Java Spring Boot | HTML e CSS | JavaScript | SQL](https://github.com/ICEI-PUC-Minas-PPLES-TI/plf-es-2023-2-ti2-1372100-tickettrade)
 - [TimeWise - HTML | CSS | JavaScript](https://github.com/GabrielPongelupe/TimeWise_Tis1)
 
