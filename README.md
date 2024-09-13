@@ -1,4 +1,4 @@
-## Olá! Eu sou o Gabriel Pongelupe 👋
+## Olá! Eu sou o Gabriel Pongelupe 
 #### My name is Gabriel Pongelupe, I'm a Software Engineering student and this is my github profile!
 
 [![Linkedin](https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/gabriel-pongelupe-de-carvalho-2b2b372b4/)
