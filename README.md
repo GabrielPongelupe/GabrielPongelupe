@@ -11,9 +11,6 @@
 
 --
 
-![GabrielPongelupe GitHub stats](https://github-readme-stats.vercel.app/api?username=GabrielPongelupe&show_icons=true&theme=radical)
-<br/>
-
 ### Technologies I use in my daily life 💻
 
 ![Top Langs](https://github-readme-stats.vercel.app/api/top-langs/?username=GabrielPongelupe&hide_progress=true&show_icons=true&theme=radical)
