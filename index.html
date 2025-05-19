@@ -1,0 +1,471 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gabriel Pongelupe - Desenvolvedor</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/js/all.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/react@18.2.0/umd/react.production.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/react-dom@18.2.0/umd/react-dom.production.min.js"></script>
+    <style>
+        :root {
+            --bg-primary: #0d1117;
+            --bg-secondary: #161b22;
+            --text-primary: #f0f6fc;
+            --text-secondary: #c9d1d9;
+            --accent: #58a6ff;
+            --card-border: #30363d;
+            --card-shadow: rgba(0, 0, 0, 0.4);
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: var(--bg-primary);
+            color: var(--text-primary);
+            line-height: 1.6;
+            padding: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .container {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+        }
+        
+        .header {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            padding: 2rem;
+            background-color: var(--bg-secondary);
+            border-radius: 1rem;
+            box-shadow: 0 4px 8px var(--card-shadow);
+            border: 1px solid var(--card-border);
+        }
+        
+        .header h1 {
+            font-size: 2.5rem;
+            background: linear-gradient(90deg, #8a2be2, #58a6ff);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 1rem;
+        }
+        
+        .header h2 {
+            font-size: 1.5rem;
+            color: var(--text-secondary);
+            margin-bottom: 1.5rem;
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1rem;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+        
+        .social-btn {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.5rem 1rem;
+            border-radius: 0.5rem;
+            text-decoration: none;
+            font-weight: 600;
+            transition: transform 0.2s, opacity 0.2s;
+        }
+        
+        .social-btn:hover {
+            transform: translateY(-3px);
+            opacity: 0.9;
+        }
+        
+        .linkedin {
+            background-color: #0077B5;
+            color: white;
+        }
+        
+        .instagram {
+            background: linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888);
+            color: white;
+        }
+        
+        .gmail {
+            background-color: #D14836;
+            color: white;
+        }
+        
+        .github {
+            background-color: #333;
+            color: white;
+        }
+        
+        .section-title {
+            font-size: 1.8rem;
+            margin-bottom: 1.5rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid var(--accent);
+            color: var(--accent);
+        }
+        
+        .tech-stack {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+            gap: 1.5rem;
+        }
+        
+        .tech-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 1.5rem;
+            background-color: var(--bg-secondary);
+            border-radius: 0.5rem;
+            border: 1px solid var(--card-border);
+            transition: transform 0.3s;
+            text-align: center;
+        }
+        
+        .tech-item:hover {
+            transform: translateY(-5px);
+        }
+        
+        .tech-icon {
+            font-size: 2.5rem;
+            margin-bottom: 0.75rem;
+        }
+        
+        .tech-name {
+            font-weight: 600;
+            font-size: 1rem;
+        }
+        
+        .tech-category {
+            font-size: 0.8rem;
+            margin-top: 0.5rem;
+            color: var(--text-secondary);
+            background-color: rgba(88, 166, 255, 0.1);
+            padding: 0.25rem 0.5rem;
+            border-radius: 0.25rem;
+        }
+        
+        .projects {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+        
+        .project-card {
+            background-color: var(--bg-secondary);
+            border-radius: 0.5rem;
+            overflow: hidden;
+            border: 1px solid var(--card-border);
+            transition: transform 0.3s;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .project-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .project-img {
+            width: 100%;
+            height: 160px;
+            object-fit: cover;
+            background: linear-gradient(135deg, #2C3E50, #4CA1AF);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 3rem;
+        }
+        
+        .project-content {
+            padding: 1.5rem;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .project-title {
+            font-size: 1.2rem;
+            margin-bottom: 0.75rem;
+            color: var(--accent);
+        }
+        
+        .project-description {
+            color: var(--text-secondary);
+            margin-bottom: 1.5rem;
+            flex-grow: 1;
+        }
+        
+        .project-tech {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-bottom: 1.5rem;
+            margin-top: auto;
+        }
+        
+        .tech-tag {
+            background-color: rgba(88, 166, 255, 0.1);
+            color: var(--accent);
+            padding: 0.25rem 0.5rem;
+            border-radius: 0.25rem;
+            font-size: 0.8rem;
+        }
+        
+        .project-link {
+            display: inline-block;
+            padding: 0.5rem 1rem;
+            background-color: var(--accent);
+            color: white;
+            text-decoration: none;
+            border-radius: 0.25rem;
+            font-weight: 600;
+            text-align: center;
+            transition: background-color 0.2s;
+        }
+        
+        .project-link:hover {
+            background-color: #4589d2;
+        }
+        
+        .stats {
+            background-color: var(--bg-secondary);
+            border-radius: 1rem;
+            padding: 2rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            border: 1px solid var(--card-border);
+        }
+        
+        .footer {
+            text-align: center;
+            margin-top: 3rem;
+            color: var(--text-secondary);
+            padding: 1rem;
+        }
+        
+        .passion {
+            font-style: italic;
+            text-align: center;
+            margin: 2rem 0;
+            padding: 1rem;
+            background-color: rgba(88, 166, 255, 0.05);
+            border-radius: 0.5rem;
+            border-left: 4px solid var(--accent);
+        }
+        
+        @media (max-width: 768px) {
+            body {
+                padding: 1rem;
+            }
+            
+            .tech-stack {
+                grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+            }
+            
+            .projects {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <h1>Gabriel Pongelupe</h1>
+            <h2>Software Engineering Student & Developer</h2>
+            
+            <div class="social-links">
+                <a href="https://www.linkedin.com/in/gabriel-pongelupe-de-carvalho-2b2b372b4/" class="social-btn linkedin" target="_blank">
+                    <i class="fab fa-linkedin"></i>
+                    LinkedIn
+                </a>
+                <a href="https://www.instagram.com/pongelupee" class="social-btn instagram" target="_blank">
+                    <i class="fab fa-instagram"></i>
+                    Instagram
+                </a>
+                <a href="mailto:gabrielpongelupee@gmail.com" class="social-btn gmail" target="_blank">
+                    <i class="far fa-envelope"></i>
+                    Email
+                </a>
+                <a href="https://github.com/GabrielPongelupe" class="social-btn github" target="_blank">
+                    <i class="fab fa-github"></i>
+                    GitHub
+                </a>
+            </div>
+        </header>
+        
+        <section>
+            <h2 class="section-title">Skills & Technologies</h2>
+            <div class="tech-stack">
+                <div class="tech-item">
+                    <div class="tech-icon"><i class="fab fa-react" style="color: #61DAFB;"></i></div>
+                    <div class="tech-name">React.js</div>
+                    <div class="tech-category">Frontend</div>
+                </div>
+                <div class="tech-item">
+                    <div class="tech-icon"><i class="fab fa-java" style="color: #ED8B00;"></i></div>
+                    <div class="tech-name">Java</div>
+                    <div class="tech-category">Backend</div>
+                </div>
+                <div class="tech-item">
+                    <div class="tech-icon"><i class="fab fa-js" style="color: #F7DF1E;"></i></div>
+                    <div class="tech-name">JavaScript</div>
+                    <div class="tech-category">Frontend</div>
+                </div>
+                <div class="tech-item">
+                    <div class="tech-icon"><i class="fas fa-leaf" style="color: #6DB33F;"></i></div>
+                    <div class="tech-name">Spring</div>
+                    <div class="tech-category">Framework</div>
+                </div>
+                <div class="tech-item">
+                    <div class="tech-icon"><i class="fab fa-python" style="color: #3776AB;"></i></div>
+                    <div class="tech-name">Python</div>
+                    <div class="tech-category">Backend</div>
+                </div>
+                <div class="tech-item">
+                    <div class="tech-icon"><i class="fas fa-bolt" style="color: #009688;"></i></div>
+                    <div class="tech-name">FastAPI</div>
+                    <div class="tech-category">Framework</div>
+                </div>
+                <div class="tech-item">
+                    <div class="tech-icon"><i class="fab fa-node-js" style="color: #339933;"></i></div>
+                    <div class="tech-name">Node.js</div>
+                    <div class="tech-category">Backend</div>
+                </div>
+                <div class="tech-item">
+                    <div class="tech-icon"><i class="fas fa-fire" style="color: #FFCA28;"></i></div>
+                    <div class="tech-name">Firebase</div>
+                    <div class="tech-category">Database</div>
+                </div>
+                <div class="tech-item">
+                    <div class="tech-icon"><i class="fas fa-database" style="color: #3ECF8E;"></i></div>
+                    <div class="tech-name">Supabase</div>
+                    <div class="tech-category">Database</div>
+                </div>
+                <div class="tech-item">
+                    <div class="tech-icon"><i class="fab fa-aws" style="color: #FF9900;"></i></div>
+                    <div class="tech-name">AWS</div>
+                    <div class="tech-category">Backend</div>
+                </div>
+                <div class="tech-item">
+                    <div class="tech-icon"><i class="fas fa-search" style="color: #FFC107;"></i></div>
+                    <div class="tech-name">ElasticSearch</div>
+                    <div class="tech-category">Database</div>
+                </div>
+                <div class="tech-item">
+                    <div class="tech-icon"><i class="fab fa-react" style="color: #61DAFB;"></i></div>
+                    <div class="tech-name">React Native</div>
+                    <div class="tech-category">Framework</div>
+                </div>
+                <div class="tech-item">
+                    <div class="tech-icon"><i class="fas fa-mobile-alt" style="color: #02569B;"></i></div>
+                    <div class="tech-name">Flutter</div>
+                    <div class="tech-category">Framework</div>
+                </div>
+                <div class="tech-item">
+                    <div class="tech-icon"><i class="fab fa-docker" style="color: #2496ED;"></i></div>
+                    <div class="tech-name">Docker</div>
+                    <div class="tech-category">Backend</div>
+                </div>
+                <div class="tech-item">
+                    <div class="tech-icon"><i class="fas fa-route" style="color: #FF6600;"></i></div>
+                    <div class="tech-name">RabbitMQ</div>
+                    <div class="tech-category">Backend</div>
+                </div>
+            </div>
+        </section>
+        
+        <p class="passion">Apaixonado por tecnologia e programação, sempre buscando aprender e evoluir!</p>
+        
+        <section>
+            <h2 class="section-title">Latest Projects</h2>
+            <div class="projects">
+                <div class="project-card">
+                    <div class="project-img">
+                        <i class="fas fa-photo-video"></i>
+                    </div>
+                    <div class="project-content">
+                        <h3 class="project-title">DePinho Multimídias</h3>
+                        <p class="project-description">
+                            Sistema para gestão de serviços fotográficos e de vídeo, permitindo agendamentos, 
+                            gerenciamento de clientes e portfólio digital.
+                        </p>
+                        <div class="project-tech">
+                            <span class="tech-tag">Java Spring Boot</span>
+                            <span class="tech-tag">HTML/CSS</span>
+                            <span class="tech-tag">JavaScript</span>
+                            <span class="tech-tag">SQL</span>
+                        </div>
+                        <a href="https://github.com/ICEI-PUC-Minas-PPLES-TI/plf-es-2024-1-ti3-8966100-de-pinho-multimidias" class="project-link" target="_blank">Ver Projeto</a>
+                    </div>
+                </div>
+                
+                <div class="project-card">
+                    <div class="project-img">
+                        <i class="fas fa-ticket-alt"></i>
+                    </div>
+                    <div class="project-content">
+                        <h3 class="project-title">TicketTrade</h3>
+                        <p class="project-description">
+                            Plataforma para compra e venda de ingressos de eventos, com sistema de 
+                            autenticação, busca avançada e transações seguras.
+                        </p>
+                        <div class="project-tech">
+                            <span class="tech-tag">Java Spring Boot</span>
+                            <span class="tech-tag">HTML/CSS</span>
+                            <span class="tech-tag">JavaScript</span>
+                            <span class="tech-tag">SQL</span>
+                        </div>
+                        <a href="https://github.com/ICEI-PUC-Minas-PPLES-TI/plf-es-2023-2-ti2-1372100-tickettrade" class="project-link" target="_blank">Ver Projeto</a>
+                    </div>
+                </div>
+                
+                <div class="project-card">
+                    <div class="project-img">
+                        <i class="far fa-clock"></i>
+                    </div>
+                    <div class="project-content">
+                        <h3 class="project-title">TimeWise</h3>
+                        <p class="project-description">
+                            Aplicação web para gerenciamento de tempo e produtividade, com recursos
+                            de planejamento, cronômetro e análise de desempenho.
+                        </p>
+                        <div class="project-tech">
+                            <span class="tech-tag">HTML</span>
+                            <span class="tech-tag">CSS</span>
+                            <span class="tech-tag">JavaScript</span>
+                        </div>
+                        <a href="https://github.com/GabrielPongelupe/TimeWise_Tis1" class="project-link" target="_blank">Ver Projeto</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <section class="stats">
+            <h2 class="section-title">GitHub Stats</h2>
+            <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=GabrielPongelupe&hide_progress=true&show_icons=true&theme=radical" alt="GitHub Stats" style="max-width: 100%; margin-bottom: 1rem;">
+        </section>
+        
+        <footer class="footer">
+            <p>© 2025 Gabriel Pongelupe | Software Engineering Student</p>
+        </footer>
+    </div>
+</body>
+</html>
